@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "/;ans1";
+
+message LoginReq{
+  string username = 1;
+  string password = 2;
+}
+
+message AccountInfo{
+  string account_id = 1;
+  string username = 2;
+  //  ... othters
+}
+
+message LoginResp{
+  int32 code = 1;
+  string errMsg = 2;
+  AccountInfo account_info = 3;
+}
+
+service AuthService{
+  rpc Login(LoginReq)  returns(LoginResp);
+}
